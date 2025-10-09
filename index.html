@@ -115,17 +115,19 @@
             </div>
         </div>
         <script type="text/javascript">
-           var naverLogin = new naver.LoginWithNaverId({
-            clientId: "nbENBx5t29_h5yeX6zNr",
-            callbackUrl: "https://teamnottebianca.github.io/log_in/?goto=callback",
-            isPopup: false,  // 팝업 로그인 여부, 필요에 따라 true/false 설정
-            loginButton: {color: "white", type: 3, height: 40}
-          });
-            var state = naver_id_login.getUniqState();
-            naver_id_login.setButton("white", 20,40);
-            naver_id_login.setDomain("https://teamnottebianca.github.io/log_in/");
-            naver_id_login.setState(state);
-            naver_id_login.init_naver_id_login();
+            window.onload = function(){
+                var naverLogin = new naver.LoginWithNaverId({
+                    clientId: "nbENBx5t29_h5yeX6zNr",
+                    callbackUrl: "https://teamnottebianca.github.io/log_in/?goto=callback",
+                    isPopup: false,  // 팝업 로그인 여부, 필요에 따라 true/false 설정
+                    loginButton: {color: "white", type: 3, height: 40}
+              });
+                var state = naver_id_login.getUniqState();
+                naver_id_login.setButton("white", 20,40);
+                naver_id_login.setDomain("https://teamnottebianca.github.io/log_in/");
+                naver_id_login.setState(state);
+                naver_id_login.init_naver_id_login();
+                };
          </script>
         <script>
 
