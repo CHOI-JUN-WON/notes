@@ -14,7 +14,7 @@
         <dialog>
             
         </dialog>
-        <div style="background-image: url(/사진/login.jpg);background-size:cover;width: 100%;height: 100vh;"id="main_div">
+        <div style="background-image: url('https://github.com/TeamNotteBianca/log_in/blob/main/20250927_140337.jpg?raw=true');background-size:cover;width: 100%;height: 100vh;"id="main_div">
             <div class="top_bar">
                 <p class="top_bar_text"><a href="http://www.naver.com" style="color: black;text-decoration:none;">백야</a> 노트</p>
                 
@@ -170,6 +170,9 @@
                 }
                 }
             }
+            function login(){
+                window.location.href ='https://log-in.rabbitlove2013.workers.dev/login/login';
+            }
 
             const parames = new URLSearchParams(window.location.search);
             const userStrings = parames.get("goto");
@@ -190,6 +193,10 @@
                 console.log('login');
                 main_div.style.display='none';
                 logindiv.style.display='';
+            }else if(userStrings=='callback'){
+                var naver_id_login = new naver_id_login("nbENBx5t29_h5yeX6zNr", "https://teamnottebianca.github.io/log_in/?goto=callback");
+                // 접근 토큰 값 출력
+                alert(naver_id_login.oauthParams.access_token);
             }
         </script>
 
@@ -288,7 +295,7 @@
              #logindivs_text {
                 
                 backdrop-filter: blur(2.6px);
-                background-image: url('https://github.com/TeamNotteBianca/log_in/blob/main/20250927_140337.jpg?raw=true');
+                background-image: url(/사진/login.jpg);
                 background-size: cover;
                 display: none;
                 width: 47.5%;
