@@ -199,17 +199,20 @@
                 main_div.style.display='none';
                 logindiv.style.display='';
             }else if(userStrings=="callback"){
-               var naver_id_login = new naver_id_login("nbENBx5t29_h5yeX6zNr", "https://teamnottebianca.github.io/log_in/?goto=callback");
-               // 접근 토큰 값 출력
-              alert(naver_id_login.oauthParams.access_token);
-              // 네이버 사용자 프로필 조회
-              naver_id_login.get_naver_userprofile("naverSignInCallback()");
-              // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
-              function naverSignInCallback() {
-                alert(naver_id_login.getProfileData('email'));
-                alert(naver_id_login.getProfileData('nickname'));
-                alert(naver_id_login.getProfileData('age'));
-              } 
+                document.ready{
+                    var naver_id_login = new naver_id_login("nbENBx5t29_h5yeX6zNr", "https://teamnottebianca.github.io/log_in/?goto=callback");
+                   // 접근 토큰 값 출력
+                  alert(naver_id_login.oauthParams.access_token);
+                  // 네이버 사용자 프로필 조회
+                  naver_id_login.get_naver_userprofile("naverSignInCallback()");
+                  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+                  function naverSignInCallback() {
+                    alert(naver_id_login.getProfileData('email'));
+                    alert(naver_id_login.getProfileData('nickname'));
+                    alert(naver_id_login.getProfileData('age'));
+                  }
+                }
+                
             }
         </script>
 
