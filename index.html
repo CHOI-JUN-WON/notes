@@ -1,105 +1,403 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>노트</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>노트</title>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/build/sha256.min.js"></script>
+        <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    </head>
+    <body>
+        <dialog>
+            
+        </dialog>
+        <div style="background-image: url(/사진/login.jpg);background-size:cover;width: 100%;height: 100vh;"id="main_div">
+            <div class="top_bar">
+                <p class="top_bar_text"><a href="http://www.naver.com" style="color: black;text-decoration:none;">백야</a> 노트</p>
+                
+                
+                <p class="top_bar_text" style="text-align: end;">홍길동님</p>
+            </div>
+            <div class="ps">
+            
+                <div id="s">
+                    <p>'안녕하세요'</p>
+                </div>
     
-</head>
-<body>
-    <div></div>
-    <div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <div id="logindiv">
-        <div id="logindivs">
-            <h1>백야 서비스에 로그인</h3>
-            <h4>로그인하여 다양한 기능을 경험해 보세요!</h6>
-            <div id="naver_id_login" onclick="login()">
-            <img src="https://raw.githubusercontent.com/TeamNotteBianca/log_in/refs/heads/main/btnG_%EC%B6%95%EC%95%BD%ED%98%95.png" alt="네이버 로그인">
-        </div>  
+                <!-- editdiv 클래스 적용 -->
+                <div class="editdiv">
+                    <textarea name="description" rows="4" cols="5"style="resize: none;width: 35vh;height: 12vh;background-color: rgb(255 255 255 / 0%); outline: 0;"placeholder="텍스트"></textarea>
+                    <div class="btn_div">
+                        <button class="cancel">취소</button>
+                        <button class="ok">확인</button>
+                        <button class="del">삭제</button>   
+                    </div>
+                    
+                </div>
+    
+                <div id="s">
+                    <p>'안녕하세요'</p>
+                </div>
+                <div class="editdiv">
+                    <textarea name="description" rows="4" cols="50"style="resize: none;width: 35vh;height: 12vh;background-color: rgb(255 255 255 / 0%); outline: 0;"placeholder="텍스트"></textarea>
+                    <div class="btn_div">
+                        <button class="cancel">취소</button>
+                        <button class="ok">확인</button>
+                        <button class="del">삭제</button>   
+                    </div>
+                </div>
+    
+                <div id="s">
+                    <p>'안녕하세요'</p>
+                </div>
+                <div class="editdiv">
+                    <textarea name="description" rows="4" cols="50"style="resize: none;width: 35vh;height: 12vh;background-color: rgb(255 255 255 / 0%); outline: 0;"placeholder="텍스트"></textarea>
+                    <div class="btn_div">
+                        <button class="cancel">취소</button>
+                        <button class="ok">확인</button>
+                        <button class="del">삭제</button>   
+                    </div>
+                </div>
+    
+                <div id="s">
+                    <p>'안녕하세요'</p>
+                </div>
+                <div class="editdiv">
+                    <textarea name="description" rows="4" cols="50"style="resize: none;width: 35vh;height: 12vh;background-color: rgb(255 255 255 / 0%); outline: 0;"placeholder="텍스트"></textarea>
+                    <div class="btn_div">
+                        <button class="cancel">취소</button>
+                        <button class="ok">확인</button>
+                        <button class="del">삭제</button>   
+                    </div>
+                </div>
+    
+                <div id="s">
+                    <p>'안녕하세요'</p>
+                </div>
+                <div class="editdiv">
+                    <textarea name="description" rows="4" cols="50"style="resize: none;width: 35vh;height: 12vh;background-color: rgb(255 255 255 / 0%); color: black; outline: 0;"placeholder="텍스트"></textarea>
+                    <div class="btn_div">
+                        <button class="cancel">취소</button>
+                        <button class="ok">확인</button>
+                        <button class="del">삭제</button>   
+                    </div>
+                </div>
+                <div id="s">
+                    <p style="text-align: center;width: 100%;height: 100%;font-size: 250%;font-family: TaebaekGalaxy;font-weight: lighter;">+</p>
+                </div>
+            </div>
         </div>
         
-    </div>
-    <script>
-        function login(){
-            window.location.href ='https://log-in.rabbitlove2013.workers.dev/login/login';
-        }
-        // Worker에서 전달한 access_token과 사용자 정보 처리
-        const params = new URLSearchParams(window.location.search);
-        const userString = params.get("user");
-        console.log("userString",userString);
 
-        if (userString) {
-            try {
-                const user = JSON.parse(userString); // JSON 파싱
-                console.log("userId:",user.response.id);
-              
-            } catch (e) {
-                console.log("userString:",'사용자 정보 파싱 실패');
+        <div id="logindiv">
+            <div class="top_bar">
+                <p class="top_bar_text"><a href="http://www.naver.com" style="color: black;text-decoration:none;">백야</a> 노트</p>
+                <p class="top_bar_text" style="text-align: end;">홍길동님</p>
+            </div>
+            <div id="logindivs_text" >
+                <div  class="text_login_annonce">
+                    <h1>백야 서비스에 로그인</h1>
+                    <h4>로그인 하여 <span class="animated-bg">특별한</span> 경험을 느껴보세요!</h4>
+                </div>
+                
+                
+    
+            </div>
+            <div id="logindivs_login" >
+                
+                <h1>소셜 로그인</h1>
+                 <div id="naver_id_login"></div>
+    
+            </div>
+        </div>
+        <script type="text/javascript">
+            var naver_id_login = new naver_id_login("nbENBx5t29_h5yeX6zNr", "https://teamnottebianca.rabbitlove2013.workers.dev/callback");
+            var state = naver_id_login.getUniqState();
+            naver_id_login.setButton("white", 20,40);
+            naver_id_login.setDomain("https://teamnottebianca.github.io/log_in/");
+            naver_id_login.setState(state);
+            naver_id_login.setPopup();
+            naver_id_login.init_naver_id_login();
+         </script>
+        <script>
+
+            const supabaseUrl = "https://rzrybrgwtqspegbvsznz.supabase.co";
+            const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cnlicmd3dHFzcGVnYnZzem56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkwNjI2OTksImV4cCI6MjA3NDYzODY5OX0.Frx8XNW5JWhoeRSHU0zwQiybSIN7Y4NdJsMK4yVpxjg"; // anon 키
+            let logindiv=document.getElementById('logindiv');
+            let main_div=document.getElementById('main_div');
+            const load_usertext1="";
+            const load_usertext2="";
+            const load_usertext3="";
+            const load_usertext4="";
+            const load_usertext5="";
+            const user_bool=false;
+            const hash = sha256('wnsdnjs1103');
+            console.log(hash); // 64자리 16진수 문자열
+            const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+            async function insertRow(user_id_inp,usertext1_inp,usertext2_inp,usertext3_inp,usertext4_inp,usertext5_inp) {
+                const newUser = {
+                user_id: user_id_inp,
+                usertext1: usertext1_inp,
+                usertext2: usertext2_inp,
+                usertext3: usertext3_inp,
+                usertext4: usertext4_inp,
+                usertext5: usertext5_inp
+                };
+
+                const { data, error } = await supabase
+                .from("user")
+                .insert([newUser]); // 배열 형태로 전달
+
+                if (error) {
+                console.error("추가 에러:", error.message);
+                } else {
+                console.log("추가된 row:", data);
+                }
             }
-        }
+            async function find(want) {
+                const { data, error } = await supabase
+                .from('user')
+                .select('*')
+                .eq('user_id', want);
+                if(error){
+                console.log("에러",error.message);
+                }else{
+                if(data.length>0){
+                    user_bool=true;
+                }
+                }
+            }
 
-    </script>
-    <style>
-        
-        #logindiv{
-            background-image: url('https://raw.githubusercontent.com/TeamNotteBianca/log_in/refs/heads/main/20250927_140337.jpg');
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-        
-        }
-         #logindivs{
-            backdrop-filter: blur(2.6px);
+            const parames = new URLSearchParams(window.location.search);
+            const userStrings = parames.get("goto");
+            if(userStrings=="main"){
+                main_div.style.display='';
+                logindiv.style.display='none';
+                console.log('main');
+                const params = new URLSearchParams(window.location.search);
+                const userString = params.get("user");
+                if (userString) {
+                    try {
+                        console.log("userId:",userString);
+                    } catch (e) {
+                        console.log("사용자 정보 파싱 실패");
+                    }
+                }
+            }else if(userStrings=="login"){
+                console.log('login');
+                main_div.style.display='none';
+                logindiv.style.display='';
+            }
+        </script>
 
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        body {
+        <style>
+            .text_login_annonce{
+                 display: flex;              /* flex 컨테이너로 설정 */
+                justify-content: center;    /* 버튼들을 가로 중앙 정렬 */
+                align-items: center;        /* 세로축도 중앙 맞춤 */    
+                backdrop-filter: blur(2.6px);
+                width: 100%;
+                height: 100vh;
+                flex-direction:column;
+            }
+            head,body{
+                height: 100%;
+                width: 100%;
+            }
+            .top_bar_text{
+                font-weight: bold;
+                margin-left: 10px;
+                margin-right: 10px;
 
-            margin: 0;
-        }
+            }
+            .top_bar{
+                border-bottom: 1px solid;
+                margin-bottom: 20px;
+                backdrop-filter: blur(2.6px);
+                
+                flex-direction: row;
+                display: flex;  
+            }
+           .btn_div {
 
-        h1 {
-            font-family: TaebaekGalaxy;
-            text-align: center;
-            font-weight: lighter;
-            margin: 0 auto;
-        }
+                display: flex;              /* flex 컨테이너로 설정 */
+                justify-content: center;    /* 버튼들을 가로 중앙 정렬 */
+                align-items: center;        /* 세로축도 중앙 맞춤 */
+                gap: 5px;                   /* 버튼 사이 간격 (선택사항) */
+            }
 
-        h4 {
-            margin: 8px;
-            font-family: TaebaekGalaxy;
-            font-weight: bold;
-            text-align: center;
-        }
+            .ps{
+                
+                flex-direction: row;
+                display: flex;  
+            }
+            #s{
+                
+                backdrop-filter: blur(2.6px);
+                /* display: none; */
+                margin-left: 10px;
+                margin-right: 10px;
+                width: 20vw;
+                height: 20vh;
+                border-radius: 5px;
+                border: 1px solid;
+                flex-direction: row;
+            }
+            /* editdiv 수평 정렬 */
+            .editdiv {
+                backdrop-filter: blur(2.6px);
+                display: none;
+                margin-left: 10px;
+                margin-right: 10px;
+                width: 20vw;
+                height: 20vh;
+                border-radius: 5px;
+                border: 1px solid;
+    
+                
+            }
 
-        @font-face {
-            font-family: 'TaebaekGalaxy';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
-            font-weight: normal;
-            font-display: swap;
-        }
+            #logindiv {
+                flex-direction: row;
+                background-size: cover;
+                /* display: none; */
+                width: 100%;
+                height: 100vh;
+                
+            }
 
-        #naver_id_login {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
+            #logindivs_login {
+                 display: flex;              /* flex 컨테이너로 설정 */
+                justify-content: center;    /* 버튼들을 가로 중앙 정렬 */
+                align-items: center;        /* 세로축도 중앙 맞춤 */
+                display: none;
+                background-color: white;
+                width: 47.5%;
+                box-shadow: 0 0 15px 5px rgb(173, 210, 255);
+                height: 85vh;
+                display: flex;
+                flex-direction: column;
+                transform: translate(103%, -96%);
+                border-top-right-radius: 10px; 
+                border-bottom-right-radius: 10px; 
+                
+            }
+             #logindivs_text {
+                
+                backdrop-filter: blur(2.6px);
+                background-image: url('https://github.com/TeamNotteBianca/log_in/blob/main/20250927_140337.jpg?raw=true');
+                background-size: cover;
+                display: none;
+                width: 47.5%;
+                height: 85vh;
+                display: flex;
+                flex-direction: column;
+                transform: translate(3%, 4%);
+                border-top-left-radius: 10px; 
+                border-bottom-left-radius: 10px; 
+                
+            }
 
-        #naver_id_login img {
-            width: 10vw;
-        }
-    </style>
-</body>
-</html>
+            body {
+                margin: 0;
+            }
+
+            h1 {
+                font-family: TaebaekGalaxy;
+                text-align: center;
+                font-weight: lighter;
+                margin: 0 auto;
+                font-size: 250%;
+            }
+
+            h4 {
+                margin: 8px;
+                font-family: TaebaekGalaxy;
+                font-weight: bold;
+                text-align: center;
+                font-size: 100%;
+            }
+
+            p {
+                font-family: TaebaekGalaxy;
+            }
+
+            @font-face {
+                font-family: 'TaebaekGalaxy';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+
+            textarea {
+            
+                margin: 0;
+                font-family: TaebaekGalaxy;
+                border: 0;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            #naver_id_login {
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            #naver_id_login img {
+                width: 10vw;
+            }
+
+            .cancel {
+                align-items: end;
+                font-family: TaebaekGalaxy;
+                background-color: rgb(219, 217, 217);
+                border: 0;
+                
+                border-radius: 5px;
+                padding: 5px 10px;
+            }
+
+            .ok {
+                align-items: end;
+                font-family: TaebaekGalaxy;
+                background-color: chartreuse;
+                border: 0;
+                margin-left: 1px;
+                border-radius: 5px;
+                padding: 5px 10px;
+            }
+
+            .del {
+                align-items: end;
+                margin: 0;
+                font-family: TaebaekGalaxy;
+                border: 0;
+                border-radius: 5px;
+                background-color: rgb(240, 72, 72);
+                padding: 5px 10px;
+            }
+            .animated-bg {
+                background: linear-gradient(-45deg, #ADD1FF, #ffff1c, #ff0080, #ADD1FF);
+                background-size: 400% 400%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: bgflow 3s ease infinite;
+            }
+            @keyframes bgflow {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+        </style>
+    </body>
+    </html>
